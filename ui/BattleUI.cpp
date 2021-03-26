@@ -44,7 +44,7 @@ void BattleUI::battle(Pokemon *pokemon1, Pokemon *pokemon2, bool isPokemon1TheCo
     auto pokemon1Copy = pokemon1->copy();
     auto pokemon2Copy = pokemon2->copy();
 
-    while (pokemon1Copy->healthPoints > 0 && pokemon2Copy->healthPoints > 0 || (pokemonRanOutOfMoves(pokemon1Copy) || pokemonRanOutOfMoves(pokemon2Copy))) {
+    while (pokemon1Copy->healthPoints > 0 && pokemon2Copy->healthPoints > 0 && !pokemonRanOutOfMoves(pokemon1Copy) && !pokemonRanOutOfMoves(pokemon2Copy)) {
         Move *move1;
         if (isPokemon1TheComputer) {
             cout << "\n" << pokemon1Copy->name << " " << pokemon1Copy->healthPoints << "/" << pokemon1->healthPoints << " vs "
