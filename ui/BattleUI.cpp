@@ -11,27 +11,29 @@ using namespace std;
 
 void BattleUI::showOptions() {
     string userInput;
+    Pokemon *pokemon1;
+    Pokemon *pokemon2;
     while (true) {
         cout << "\n(1) Player vs Player\n(2) Player vs Computer\n(3) Computer vs Computer\n\n(4) Back\n\nSelect an option: ";
         getline(cin, userInput);
         if (userInput == "1") {
-            auto pokemon1 = PokemonUI::pokemonSelectForBattle(1);
+            pokemon1 = PokemonUI::pokemonSelectForBattle(1);
             if (pokemon1 == nullptr) continue;
-            auto pokemon2 = PokemonUI::pokemonSelectForBattle(2);
+            pokemon2 = PokemonUI::pokemonSelectForBattle(2);
             if (pokemon2 == nullptr) continue;
             battle(pokemon1, pokemon2, false, false);
         }
         else if (userInput == "2")  {
-            auto pokemon1 = PokemonUI::pokemonSelectForBattle(1);
+            pokemon1 = PokemonUI::pokemonSelectForBattle(1);
             if (pokemon1 == nullptr) continue;
-            auto pokemon2 = PokemonUI::pokemonSelectForBattle(2);
+            pokemon2 = PokemonUI::pokemonSelectForBattle(2);
             if (pokemon2 == nullptr) continue;
             battle(pokemon1, pokemon2, false, true);
         }
         else if (userInput == "3") {
-            auto pokemon1 = PokemonUI::pokemonSelectForBattle(1);
+            pokemon1 = PokemonUI::pokemonSelectForBattle(1);
             if (pokemon1 == nullptr) continue;
-            auto pokemon2 = PokemonUI::pokemonSelectForBattle(2);
+            pokemon2 = PokemonUI::pokemonSelectForBattle(2);
             if (pokemon2 == nullptr) continue;
             battle(pokemon1, pokemon2, true, true);
         }

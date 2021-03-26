@@ -1,4 +1,4 @@
-A TUI application that simulates Pokémon battles.
+A simple C++ terminal application that simulates Pokémon battles.
 
 Game modes:
     Player vs Player
@@ -7,6 +7,8 @@ Game modes:
 
 A command that creates an executable:
     g++ -o main main.cpp ui/*.cpp logic/*.cpp data/*.cpp models/*.cpp -std=c++11
+
+After you've created that executable (which is called main) you run that file to see the program in action.
 
 The following website provides the method used during damage calculation:
 https://bulbapedia.bulbagarden.net/wiki/Damage

@@ -5,6 +5,7 @@
 
 void MoveUI::showOptions() {
     string userInput;
+    Move *move;
     while (true) {
         cout << "\n(1) Show All Moves\n(2) Create Move\n(3) Edit Move\n(4) Delete Move\n\n(5) Back\n\nSelect an option: ";
         getline(cin, userInput);
@@ -18,11 +19,11 @@ void MoveUI::showOptions() {
         }
         else if (userInput == "2") showCreationMenu();
         else if (userInput == "3") {
-            Move *move = moveSelect();
+             move = moveSelect();
             if (move != nullptr) showEditMenu(move);
         }
         else if (userInput == "4") {
-            auto move = moveSelect();
+            move = moveSelect();
             MoveLogic::remove(move);
         }
         else if (userInput == "5") { cout << "\n"; break; }
@@ -97,9 +98,9 @@ void MoveUI::showEditMenu(Move *move) {
 
         if (userInput == "8") { delete move; break; };
         if (userInput == "9") {
-            auto &moves = MoveLogic::load();
             if (move->id == -1) {
                 move->id = MoveLogic::generateID();
+                auto &moves = MoveLogic::load();
                 moves.push_back(move);
             }
             MoveLogic::save();
@@ -217,9 +218,10 @@ Move *MoveUI::moveSelect() {
 Move *MoveUI::moveSelectInBattle(Pokemon *pokemonCopy, Pokemon *originalPokemon) {
     int back = pokemonCopy->moves.size() + 1;
     string userInput;
+    Move *move;
     while (true) {
         for (int i = 0; i < pokemonCopy->moves.size(); i++) {
-            auto move = pokemonCopy->moves[i];
+            move = pokemonCopy->moves[i];
             cout << "\n(" << i+1 << ") " << move->name << " (" << typeStrings[move->type] << ") "
                  << move->powerPoints << "/" << originalPokemon->moves[i]->powerPoints << "\n";
             cout << (move->isSpecial ? "Special" : "Physical") << " ATK: " << move->attackPower << " Accuracy: " << move->accuracy << "\n";

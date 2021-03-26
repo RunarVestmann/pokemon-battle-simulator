@@ -150,8 +150,8 @@ void Pokemon::deserialize(char *pointer) {
 Pokemon *Pokemon::copy() {
     auto pokemon = new Pokemon();
     pokemon->id = id;
-    pokemon->name = name;
-    pokemon->types = types;
+    pokemon->name = name.c_str();
+    for (auto type : types) pokemon->types.push_back(type);
     for (auto move : moves) pokemon->moves.push_back(move->copy());
     pokemon->healthPoints = healthPoints;
     pokemon->level = level;

@@ -93,7 +93,7 @@ Move *Move::copy() {
     auto move = new Move();
 
     move->id = id;
-    move->name = name;
+    move->name = name.c_str();
     move->type = type;
     move->powerPoints = powerPoints;
     move->attackPower = attackPower;

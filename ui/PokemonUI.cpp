@@ -9,6 +9,7 @@ using namespace std;
 
 void PokemonUI::showOptions() {
     string userInput;
+    Pokemon *pokemon;
     while (true) {
         cout << "\n(1) Show All Pokemon\n(2) Create Pokemon\n(3) Edit Pokemon\n(4) Delete Pokemon\n\n(5) Back\n\nSelect an option: ";
         getline(cin, userInput);
@@ -22,11 +23,11 @@ void PokemonUI::showOptions() {
         }
         else if (userInput == "2") showCreationMenu();
         else if (userInput == "3") {
-            auto pokemon = pokemonSelect();
+            pokemon = pokemonSelect();
             if (pokemon != nullptr) showEditMenu(pokemon);
         }
         else if (userInput == "4") {
-            auto pokemon = pokemonSelect();
+            pokemon = pokemonSelect();
             PokemonLogic::remove(pokemon);
         }
         else if (userInput == "5") { cout << "\n"; break; }
@@ -118,9 +119,9 @@ void PokemonUI::showEditMenu(Pokemon *pokemon) {
 
         if (userInput == "11") { delete pokemon; break; };
         if (userInput == "12") {
-            auto &pokemonVector = PokemonLogic::load();
             if (pokemon->id == -1) {
                 pokemon->id = PokemonLogic::generateID();
+                auto &pokemonVector = PokemonLogic::load();
                 pokemonVector.push_back(pokemon);
             }
             PokemonLogic::save();
