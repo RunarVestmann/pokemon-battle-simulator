@@ -4,3 +4,5 @@ cmake-build-debug/
 *.exe
 *.o
 *.log
+*.mp4
+*.zip
