@@ -6,7 +6,7 @@ A simple C++ terminal application that simulates Pokémon battles.
 - Computer vs Computer<br>
 
 A command that creates an executable:
-- g++ -o main main.cpp ui/*.cpp logic/*.cpp data/*.cpp models/*.cpp -std=c++11
+- g++ -o main main.cpp ui/\*.cpp logic/*.cpp data/\*.cpp models/\*.cpp -std=c++11
 
 After you've created that executable (which is called main) you run that file to see the program in action.
 
